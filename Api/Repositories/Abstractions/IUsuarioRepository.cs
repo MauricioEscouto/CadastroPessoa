@@ -4,6 +4,7 @@ namespace Api.Repositories.Abstractions
 {
     public interface IUsuarioRepository
     {
-        Task<Task> Criar(Usuario usuario);
+        Task<Task> Cadastrar(Usuario usuario);
+        Task<Usuario?> Logar(Usuario usuario);
     }
 }

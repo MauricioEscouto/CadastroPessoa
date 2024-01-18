@@ -5,6 +5,7 @@ namespace Api.Services.Abstractions
 {
     public interface IUsuarioServices
     {
-        Task<IActionResult> Criar(Usuario usuario);
+        Task<IActionResult> Cadastrar(Usuario usuario);
+        Task<IActionResult> Logar(Usuario usuario);
     }
 }

@@ -15,12 +15,21 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        [Route("Criar")]
+        [Route("Cadastrar")]
         [Produces("application/json")]
         [Consumes("application/json")]
-        public async Task<IActionResult> Criar([FromBody] Usuario request)
+        public async Task<IActionResult> Cadastrar([FromBody] Usuario request)
         {
-            return await _services.Criar(request);
+            return await _services.Cadastrar(request);
+        }
+
+        [HttpPost]
+        [Route("Logar")]
+        [Produces("application/json")]
+        [Consumes("application/json")]
+        public async Task<IActionResult> Logar(string Email, string Senha)
+        {
+            return await _services.Logar(new Usuario { Email = Email, Senha = Senha });
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Api.Repositories
 
         }
 
-        public async Task<Task> Criar(Usuario usuario)
+        public async Task<Task> Cadastrar(Usuario usuario)
         {
             using (var connection = new MySqlConnection(ConexaoSettings.ObterValorConexao()))
             {
@@ -22,9 +22,28 @@ namespace Api.Repositories
                 {
                     await connection.OpenAsync();
 
-                    await connection.QueryAsync(QuerysUsuario.Criar(), usuario);
+                    await connection.QueryAsync(QuerysUsuario.Cadastrar(), usuario);
 
                     return Task.CompletedTask;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+
+        public async Task<Usuario?> Logar(Usuario usuario)
+        {
+            using (var connection = new MySqlConnection(ConexaoSettings.ObterValorConexao()))
+            {
+                try
+                {
+                    await connection.OpenAsync();
+
+                    Usuario? usuarioObtido = await connection.QueryFirstOrDefaultAsync<Usuario?>(QuerysUsuario.Logar(), usuario);
+
+                    return usuarioObtido;
                 }
                 catch (Exception)
                 {
