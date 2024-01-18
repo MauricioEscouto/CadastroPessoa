@@ -5,9 +5,9 @@ namespace Api.Shared.Domain
 {
     public class OutputPort : ControllerBase, IOutputPort
     {
-        public IActionResult InvalidRequest()
+        public IActionResult InvalidRequest(object obj)
         {
-            return BadRequest();
+            return BadRequest(obj);
         }
 
         public IActionResult NotFound(string message)

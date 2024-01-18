@@ -15,7 +15,8 @@ namespace Api.Shared.Modules
                 .AddHttpContextAccessor()
                 .AddSingleton<IHttpContextAccessor, HttpContextAccessor>()
                 .AddScoped<IOutputPort, OutputPort>()
-                .AddUsuario();
+                .AddUsuario()
+                .AddPessoa();
         }
 
         public static IServiceCollection AddUsuario(this IServiceCollection services)
@@ -23,6 +24,13 @@ namespace Api.Shared.Modules
             return services
                 .AddScoped<IUsuarioRepository, UsuarioRepository>()
                 .AddScoped<IUsuarioServices, UsuarioServices>();
+        }
+
+        public static IServiceCollection AddPessoa(this IServiceCollection services)
+        {
+            return services
+                .AddScoped<IPessoaRepository, PessoaRepository>()
+                .AddScoped<IPessoaServices, PessoaServices>();
         }
     }
 }

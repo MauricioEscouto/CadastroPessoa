@@ -23,7 +23,7 @@ namespace Api.Controllers
             return await _services.Cadastrar(request);
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("Logar")]
         [Produces("application/json")]
         [Consumes("application/json")]

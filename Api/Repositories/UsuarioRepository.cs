@@ -3,7 +3,7 @@ using Api.Shared.Context;
 using Api.Shared.Context.DbQuery;
 using Api.Shared.Entities;
 using Dapper;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 
 namespace Api.Repositories
 {
