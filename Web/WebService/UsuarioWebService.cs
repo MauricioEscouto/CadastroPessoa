@@ -17,7 +17,21 @@ namespace Web.WebService
             try
             {
                 string caminho = $"{apiUrl}/Usuario/Logar";
-                var response = await HttpRequestApi.GetData(caminho, obj);
+                var response = await HttpRequestApi.PostData(caminho, obj);
+                return response;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public async Task<IActionResult> Cadastrar(object obj)
+        {
+            try
+            {
+                string caminho = $"{apiUrl}/Usuario/Cadastrar";
+                var response = await HttpRequestApi.PostData(caminho, obj);
                 return response;
             }
             catch (Exception)

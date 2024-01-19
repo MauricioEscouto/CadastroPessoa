@@ -18,6 +18,7 @@ namespace Web.Shared.Modules
         {
             ApiConexao.Configure(app.Configuration);
             HttpRequestApi.Configure(app.Services.GetRequiredService<IHttpClientFactory>().CreateClient());
+            Sessao.Configure(app.Services.GetRequiredService<IHttpContextAccessor>());
         }
 
         public static IServiceCollection AddUsuarioDependency(this IServiceCollection services)

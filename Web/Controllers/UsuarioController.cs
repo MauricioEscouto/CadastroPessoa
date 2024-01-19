@@ -26,5 +26,18 @@ namespace Web.Controllers
                 return StatusCode(500, "Ocorreu um erro inesperado ao tentar acessar sua conta. Por favor, tente novamente.");
             }
         }
+
+        [HttpPost("Cadastrar")]
+        public async Task<IActionResult> Cadastrar([FromBody] UsuarioEntity usuario)
+        {
+            try
+            {
+                return await _services.Cadastrar(usuario);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, "Ocorreu um erro inesperado ao tentar cadastrar sua conta. Por favor, tente novamente.");
+            }
+        }
     }
 }
