@@ -2,3 +2,17 @@
 @model Web.Pages.Usuario.LoginModel
 @{
 }
+
+<form id="form_login" class="w-50 mt-5 p-5 border rounded-3" style="height: max-content">
+    <div class="mb-3">
+        <label for="input_email" class="form-label">E-mail</label>
+        <input type="text" class="form-control" id="input_email" required>
+    </div>
+    <div class="mb-3">
+        <label for="input_senha" class="form-label">Senha</label>
+        <input type="password" class="form-control" id="input_senha" required>
+    </div>
+    <button id="login_btnEntrar" class="btn btn-primary">Entrar</button>
+</form>
+
+<script src="~/js/Usuario/Login.js"></script>

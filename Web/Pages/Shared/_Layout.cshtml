@@ -22,8 +22,8 @@
                 </ul>
 
                 <div class="text-end">
-                    <button type="button" class="btn btn-outline-light me-2">Entrar</button>
-                    <button type="button" class="btn btn-primary">Cadastrar</button>
+                    <button type="button" id="cabecalho_btnEntrar" class="btn btn-outline-light me-2">Entrar</button>
+                    <button type="button" id="cabecalho_btnCadastrar" class="btn btn-primary">Cadastrar</button>
                 </div>
             </div>
         </div>
@@ -44,7 +44,9 @@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/Cabecalho/Cabecalho.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

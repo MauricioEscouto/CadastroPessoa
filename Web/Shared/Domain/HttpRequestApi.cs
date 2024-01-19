@@ -11,6 +11,19 @@ namespace Web.Shared.Domain
             _httpClient = httpClient;
         }
 
+        public static async Task<IActionResult> GetData(string caminho)
+        {
+            HttpResponseMessage response = await _httpClient.GetAsync(caminho);
+
+            string responseData = await response.Content.ReadAsStringAsync();
+            var result = new ObjectResult(responseData)
+            {
+                StatusCode = (int)response.StatusCode
+            };
+
+            return result;
+        }
+
         public static async Task<IActionResult> PostData(string caminho, object obj)
         {
             HttpResponseMessage response = await _httpClient.PostAsJsonAsync(caminho, obj);
