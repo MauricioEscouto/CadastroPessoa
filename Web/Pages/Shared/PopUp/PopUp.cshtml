@@ -1,0 +1,52 @@
+﻿@page
+@using Web.Shared.Enum
+@model Web.Pages.Shared.PopUp.PopUpModel
+@{
+    Layout = "_LayoutPartial";
+
+    string classBtnNega = string.Empty;
+    string classBtnConfirma = string.Empty;
+    string tituloBtnNega = "Não";
+    string tituloBtnConfirma = "Ok";
+
+    switch (Model.PopUp.TipoPopUp)
+    {
+        case EnumTipoPopUp.Alerta:
+            classBtnNega = "btn-primary";
+            classBtnConfirma = "btn-outline-danger";
+            break;
+        case EnumTipoPopUp.Confirmacao:
+            classBtnConfirma = "btn-primary";
+            break;
+        case EnumTipoPopUp.Erro:
+            classBtnConfirma = "btn-danger";
+            break;
+        case EnumTipoPopUp.Sucesso:
+            classBtnConfirma = "btn-success";
+            break;
+        default:
+            classBtnConfirma = "btn-primary";
+            break;
+    }
+}
+
+<div class="modal fade" id="modal_popUp" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Atenção</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @Model.PopUp.Mensagem
+            </div>
+            <div class="modal-footer">
+                @if (!string.IsNullOrEmpty(classBtnNega))
+                {
+                    <button type="button" id="popUp_btnNega" class="btn @classBtnNega" data-bs-dismiss="modal">@tituloBtnNega</button>
+                }
+                <button type="button" id="popUp_btnConfirma" data-bs-dismiss="modal" class="btn @classBtnConfirma" @Html.Raw(string.IsNullOrEmpty(classBtnNega) ? "data-bs-dismiss=\"modal\"" : "")>@tituloBtnConfirma</button>
+            </div>
+        </div>
+    </div>
+</div>

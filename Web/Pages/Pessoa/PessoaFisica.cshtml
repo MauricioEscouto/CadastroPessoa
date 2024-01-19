@@ -1,0 +1,73 @@
+﻿@page "/PessoaFisica/Cadastro"
+@model Web.Pages.Pessoa.PessoaFisicaModel
+@{
+}
+
+<link rel="stylesheet" href="~/css/Pessoa/PessoaCadastro.css" />
+
+<div class="w-50 mt-5 p-5 border rounded-3" style="height: max-content">
+    <h3>Cadastrar</h3>
+
+    <form id="form_pessoaDadosPessoais">
+        <h4>Dados Pessoais</h4>
+        <div class="d-flex flex-column">
+            <div class="d-flex justify-content-between flex-wrap">
+                <div class="mb-3 divInput_cadastroPessoa divInput_cadastroPessoa">
+                    <label for="input_nome" class="form-label">Nome</label>
+                    <input type="text" name="nome" class="form-control" id="input_nome" required>
+                </div>
+                <div class="mb-3 divInput_cadastroPessoa divInput_cadastroPessoa">
+                    <label for="input_sobrenome" class="form-label">Sobrenome</label>
+                    <input type="text" name="sobrenome" class="form-control" id="input_sobrenome" required>
+                </div>
+                <div class="mb-3 divInput_cadastroPessoa divInput_cadastroPessoa">
+                    <label for="input_datanascimento" class="form-label">Data Nascimento</label>
+                    <input type="text" name="datanascimento" class="form-control" id="input_datanascimento" autocomplete="off" required>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between flex-wrap">
+                <div class="mb-3 divInput_cadastroPessoa divInput_cadastroPessoa">
+                    <label for="input_email" class="form-label">E-mail</label>
+                    <input type="text" name="email" class="form-control" id="input_email" required>
+                </div>
+                <div class="mb-3 divInput_cadastroPessoa divInput_cadastroPessoa">
+                    <label for="input_documento" class="form-label">CPF</label>
+                    <input type="text" name="documento" class="form-control" id="input_documento" autocomplete="off" required>
+                </div>
+                <div class="mb-3 divInput_cadastroPessoa divInput_cadastroPessoa">
+                    <label for="input_rg" class="form-label">RG</label>
+                    <input type="text" name="rg" class="form-control" id="input_rg" required>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <hr />
+
+    <div id="div_cadastroEndereco">
+        <h4>Endereços</h4>
+        <div id="subDiv_cadastroEndereco">
+        </div>
+        <div>
+            <button class="btn btn-info" onclick="ActionPessoaCadastro.AdicionarEndereco()">Adicionar</button>
+        </div>
+    </div>
+
+    <hr />
+
+    <div id="div_cadastroContato">
+        <h4>Contatos</h4>
+        <div id="subDiv_cadastroContato">
+        </div>
+        <div>
+            <button class="btn btn-info" onclick="ActionPessoaCadastro.AdicionarContato()">Adicionar</button>
+        </div>
+    </div>
+
+    <hr />
+
+    <button id="pessoaFisica_btnCadastrar" onclick="ActionPessoaCadastro.Salvar()" class="btn btn-primary">Salvar</button>
+</div>
+
+
+<script src="~/js/Pessoa/PessoaCadastro.js"></script>

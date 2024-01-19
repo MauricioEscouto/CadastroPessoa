@@ -18,7 +18,7 @@
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <li><a href="/" class="nav-link px-2 text-secondary">Home</a></li>
-                    <li><a href="/" class="nav-link px-2 text-white">Cadastro Pessoa</a></li>
+                    <li><a href="/Pessoa" class="nav-link px-2 text-white">Cadastro Pessoa</a></li>
                 </ul>
 
                 <div class="text-end">
@@ -36,17 +36,14 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - Web - <a asp-area="" asp-page="/Privacy">Privacy</a>
-        </div>
-    </footer>
-
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.8/jquery.inputmask.min.js"></script>
 
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/Cabecalho/Cabecalho.js"></script>
+    <script src="~/js/Shared/Enum/Enum.js"></script>
+    <script src="~/js/Shared/PopUp/PopUp.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

@@ -1,0 +1,26 @@
+﻿@page
+@model Web.Pages.Pessoa._PartialContatoModel
+@{
+    Layout = "_LayoutPartial";
+}
+
+<form id="form_pessoaDadosContato-@Model.Id" class="d-flex justify-content-between flex-wrap">
+    <div class="mb-3 divInput_cadastroPessoa">
+        <label for="input_nome" class="form-label">Nome</label>
+        <input type="text" name="nome" class="form-control" id="input_nome" required>
+    </div>
+    <div class="mb-3 divInput_cadastroPessoa">
+        <label for="input_informacao-@Model.Id" class="form-label">Contato</label>
+        <input type="email" name="informacao" class="form-control" id="input_informacao-@Model.Id" required>
+    </div>
+    <div class="mb-3 divInput_cadastroPessoa">
+        <label for="input_tipoContato-@Model.Id" class="form-label">Tipo de Contato</label>
+        <select name="tipoContato" class="form-control" id="input_tipoContato-@Model.Id" onchange="mudarTipoContato(@Model.Id)" required>
+            <option selected value="0">E-mail</option>
+            <option value="1">Telefone</option>
+        </select>
+    </div>
+    <div class="w-100 d-flex justify-content-end">
+        <button class="btn btn-outline-danger" onclick="ActionPessoaCadastro.RemoverContato(@Model.Id)">Remover</button>
+    </div>
+</form>

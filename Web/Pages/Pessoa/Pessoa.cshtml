@@ -1,0 +1,17 @@
+﻿@page "/Pessoa"
+@model Web.Pages.Pessoa.PessoaModel
+@{
+}
+
+<form id="form_pessoa" class="w-50 mt-5 p-5 border rounded-3" style="height: max-content">
+    <div class="mb-2 d-flex flex-column col-span-2 sm:col-span-1">
+        <label for="input_tipoDocumento" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tipo cadastro desejado: </label>
+        <select id="pessoa_tipoCadastro" class=" w-50 form-select form-select-sm" aria-label="Small select example">
+            <option value="/PessoaFisica/Cadastro">Pessoa Física</option>
+            <option value="/Pessoa">Pessoa Jurídica</option>
+        </select>
+    </div>
+    <button id="pessoa_btnCadastrar" class="btn btn-primary">Cadastrar</button>
+</form>
+
+<script src="~/js/Pessoa/Pessoa.js"></script>

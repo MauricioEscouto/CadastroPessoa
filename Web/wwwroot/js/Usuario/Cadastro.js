@@ -14,17 +14,9 @@
 
 var ActionCadastro = {
     Cadastrar: async function () {
-        let inputNome = document.getElementById("input_nome");
-        let inputEmail = document.getElementById("input_email");
-        let inputTelefone = document.getElementById("input_telefone");
-        let inputSenha = document.getElementById("input_senha");
-
-        const usuario = {
-            nome: inputNome.value,
-            email: inputEmail.value,
-            telefone: inputTelefone.value,
-            senha: inputSenha.value
-        };
+        let formCadastroUsuario = document.getElementById('form_cadastro');
+        let formData = new FormData(formCadastroUsuario);
+        let usuario = Object.fromEntries(formData.entries());
 
         const response = await fetch(`/Usuario/Cadastrar`, {
             method: 'POST',
@@ -35,10 +27,23 @@ var ActionCadastro = {
         });
 
         if (response.status === 200) {
-            window.location.href = '/';
+            response.text().then(text => {
+                PopUp(
+                    {
+                        TipoPopUp: TipoPopUp.Sucesso,
+                        Mensagem: "Usuário cadastrado com sucesso.",
+                        FnConfirma: async () => {
+                            window.location.href = "/";
+                        }
+                    }
+                );
+            });
         }
         else {
             response.text().then(text => {
+                if (text.startsWith('"') && text.endsWith('"')) {
+                    text = text.slice(1, -1);
+                }
                 PopUp(
                     {
                         TipoPopUp: TipoPopUp.Erro,

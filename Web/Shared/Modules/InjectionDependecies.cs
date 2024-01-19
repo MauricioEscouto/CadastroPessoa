@@ -11,7 +11,8 @@ namespace Web.Shared.Modules
             return services
                 .AddHttpContextAccessor()
                 .AddSingleton<IHttpContextAccessor, HttpContextAccessor>()
-                .AddUsuarioDependency();
+                .AddUsuarioDependency()
+                .AddPessoaDependency();
         }
 
         public static void ConfigureApplication(WebApplication app)
@@ -26,6 +27,13 @@ namespace Web.Shared.Modules
             return services
                 .AddScoped<UsuarioServices>()
                 .AddScoped<UsuarioWebService>();
+        }
+
+        public static IServiceCollection AddPessoaDependency(this IServiceCollection services)
+        {
+            return services
+                .AddScoped<PessoaServices>()
+                .AddScoped<PessoaWebService>();
         }
     }
 }

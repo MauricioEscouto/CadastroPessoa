@@ -14,13 +14,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 var ActionLogin = {
     Logar: async function () {
-        let inputEmail = document.getElementById("input_email");
-        let inputSenha = document.getElementById("input_senha");
-
-        const usuario = {
-            email: inputEmail.value,
-            senha: inputSenha.value
-        };
+        let formLoginUsuario = document.getElementById('form_login');
+        let formData = new FormData(formLoginUsuario);
+        let usuario = Object.fromEntries(formData.entries());
 
         const response = await fetch(`/Usuario/Logar`, {
             method: 'POST',
@@ -35,6 +31,9 @@ var ActionLogin = {
         }
         else {
             response.text().then(text => {
+                if (text.startsWith('"') && text.endsWith('"')) {
+                    text = text.slice(1, -1);
+                }
                 PopUp(
                     {
                         TipoPopUp: TipoPopUp.Erro,
