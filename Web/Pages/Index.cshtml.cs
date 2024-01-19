@@ -9,7 +9,7 @@ namespace Web.Pages
         {
         }
 
-        public IActionResult OnGet()
+        public async Task<IActionResult> OnGet()
         {
             return Page();
         }

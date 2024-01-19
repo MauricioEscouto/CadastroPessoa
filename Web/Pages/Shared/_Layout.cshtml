@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using Web.Shared.Domain
+@{
+    bool isUsuarioLogado = Sessao.Get();
+}
+
+<!DOCTYPE html>
 <html lang="pt-BR" data-bs-theme="dark">
 <head>
     <meta charset="utf-8" />
@@ -17,20 +22,26 @@
                 </a>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="/" class="nav-link px-2 text-secondary">Home</a></li>
-                    <li><a href="/Pessoa" class="nav-link px-2 text-white">Cadastro Pessoa</a></li>
+                    <li><a href="/" class="nav-link px-2 text-white">Home</a></li>
+                    @if (isUsuarioLogado)
+                    {
+                        <li><a href="/Pessoa" class="nav-link px-2 text-white">Cadastro Pessoa</a></li>
+                    }
                 </ul>
 
-                <div class="text-end">
-                    <button type="button" id="cabecalho_btnEntrar" class="btn btn-outline-light me-2">Entrar</button>
-                    <button type="button" id="cabecalho_btnCadastrar" class="btn btn-primary">Cadastrar</button>
-                </div>
+                @if (!isUsuarioLogado)
+                {
+                    <div class="text-end">
+                        <button type="button" id="cabecalho_btnEntrar" class="btn btn-outline-light me-2">Entrar</button>
+                        <button type="button" id="cabecalho_btnCadastrar" class="btn btn-primary">Cadastrar</button>
+                    </div>
+                }
             </div>
         </div>
     </header>
     <div class="container">
         <main role="main" class="pb-3">
-            <div class="d-flex justify-content-center">
+            <div class="container d-flex justify-content-center">
                 @RenderBody()
             </div>
         </main>
