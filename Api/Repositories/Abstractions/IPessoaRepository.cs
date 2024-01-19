@@ -5,7 +5,10 @@ namespace Api.Repositories.Abstractions
 {
     public interface IPessoaRepository
     {
-        Task<int> CadastrarPessoa(IPessoa pessoa);
+        Task<List<object>> ObterPessoas();
+        Task<List<Endereco>> ObterEnderecos();
+        Task<List<Contato>> ObterContatos();
+        Task<int> CadastrarPessoaFisica(PessoaFisica pessoa);
         Task<Task> CadastrarEndereco(Endereco endereco, int idPessoa);
         Task<Task> CadastrarContato(Contato contato, int idPessoa);
     }

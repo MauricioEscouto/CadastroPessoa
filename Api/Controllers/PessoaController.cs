@@ -15,13 +15,22 @@ namespace Api.Controllers
             _services = services;
         }
 
+        [HttpGet]
+        [Route("ObterTodos")]
+        [Produces("application/json")]
+        [Consumes("application/json")]
+        public async Task<IActionResult> ObterTodos()
+        {
+            return await _services.ObterTodos();
+        }
+
         [HttpPost]
         [Route("CadastrarPessoaFisica")]
         [Produces("application/json")]
         [Consumes("application/json")]
         public async Task<IActionResult> CadastrarPessoaFisica([FromBody] PessoaFisica request)
         {
-            return await _services.Cadastrar(request);
+            return await _services.CadastrarPessoaFisica(request);
         }
     }
 }

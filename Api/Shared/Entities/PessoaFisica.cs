@@ -5,7 +5,7 @@ namespace Api.Shared.Entities
 {
     public class PessoaFisica : IPessoa
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Nome { get; set; }
         public string Sobrenome { get; set; }
         public string Email { get ; set ; }
@@ -15,5 +15,11 @@ namespace Api.Shared.Entities
         public string RG { get; set; }
         public List<Endereco> Enderecos { get ; set ; }
         public List<Contato> Contatos { get ; set ; }
+
+        public PessoaFisica()
+        {
+            Enderecos = new List<Endereco>();
+            Contatos = new List<Contato>();
+        }
     }
 }
