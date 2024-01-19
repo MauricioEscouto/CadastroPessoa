@@ -1,61 +1,61 @@
 ﻿@using Web.Shared.Domain
 @{
-    bool isUsuarioLogado = Sessao.Get();
+	bool isUsuarioLogado = Sessao.Get();
 }
 
 <!DOCTYPE html>
 <html lang="pt-BR" data-bs-theme="dark">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Web</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Web.styles.css" asp-append-version="true" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - Web</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/Web.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header class="p-3 text-bg-dark">
-        <div class="container">
-            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
-                </a>
+	<header class="p-3 text-bg-dark border-bottom">
+		<div class="container">
+			<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+				<a class="navbar-brand p-0 me-0 me-lg-2" href="/" aria-label="Bootstrap">
+					<svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" viewBox="0 0 24 24" fill="none" stroke="#0d6efd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-anchor"><circle cx="12" cy="5" r="3"></circle><line x1="12" y1="22" x2="12" y2="8"></line><path d="M5 12H2a10 10 0 0 0 20 0h-3"></path></svg>
+				</a>
 
-                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="/" class="nav-link px-2 text-white">Home</a></li>
-                    @if (isUsuarioLogado)
-                    {
-                        <li><a href="/Pessoa" class="nav-link px-2 text-white">Cadastro Pessoa</a></li>
-                    }
-                </ul>
+				<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+					<li><a href="/" class="nav-link px-2 text-white">Home</a></li>
+					@if (isUsuarioLogado)
+					{
+						<li><a href="/Pessoa" class="nav-link px-2 text-white">Cadastro Pessoa</a></li>
+					}
+				</ul>
 
-                @if (!isUsuarioLogado)
-                {
-                    <div class="text-end">
-                        <button type="button" id="cabecalho_btnEntrar" class="btn btn-outline-light me-2">Entrar</button>
-                        <button type="button" id="cabecalho_btnCadastrar" class="btn btn-primary">Cadastrar</button>
-                    </div>
-                }
-            </div>
-        </div>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            <div class="container d-flex justify-content-center">
-                @RenderBody()
-            </div>
-        </main>
-    </div>
+				@if (!isUsuarioLogado)
+				{
+					<div class="text-end">
+						<button type="button" id="cabecalho_btnEntrar" class="btn btn-outline-light me-2">Entrar</button>
+						<button type="button" id="cabecalho_btnCadastrar" class="btn btn-primary">Cadastrar</button>
+					</div>
+				}
+			</div>
+		</div>
+	</header>
+	<div class="container">
+		<main role="main" class="pb-3">
+			<div class="container d-flex justify-content-center">
+				@RenderBody()
+			</div>
+		</main>
+	</div>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.8/jquery.inputmask.min.js"></script>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.8/jquery.inputmask.min.js"></script>
 
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="~/js/Cabecalho/Cabecalho.js"></script>
-    <script src="~/js/Shared/Enum/Enum.js"></script>
-    <script src="~/js/Shared/PopUp/PopUp.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+	<script src="~/js/Cabecalho/Cabecalho.js"></script>
+	<script src="~/js/Shared/Enum/Enum.js"></script>
+	<script src="~/js/Shared/PopUp/PopUp.js"></script>
 
-    @await RenderSectionAsync("Scripts", required: false)
+	@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

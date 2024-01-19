@@ -7,15 +7,15 @@
 <form id="form_pessoaDadosContato-@Model.Id" class="d-flex justify-content-between flex-wrap">
     <div class="mb-3 divInput_cadastroPessoa">
         <label for="input_nome" class="form-label">Nome</label>
-        <input type="text" name="nome" class="form-control" id="input_nome" required>
+        <input type="text" name="nome" class="form-control" id="input_nome" placeholder="Nome Contato" required>
     </div>
     <div class="mb-3 divInput_cadastroPessoa">
         <label for="input_informacao-@Model.Id" class="form-label">Contato</label>
-        <input type="email" name="informacao" class="form-control" id="input_informacao-@Model.Id" required>
+        <input type="email" name="informacao" class="form-control" id="input_informacao-@Model.Id" placeholder="E-mail/Telefone" required>
     </div>
     <div class="mb-3 divInput_cadastroPessoa">
         <label for="input_tipoContato-@Model.Id" class="form-label">Tipo de Contato</label>
-        <select name="tipoContato" class="form-control" id="input_tipoContato-@Model.Id" onchange="mudarTipoContato(@Model.Id)" required>
+        <select name="tipoContato" class="form-select" id="input_tipoContato-@Model.Id" onchange="mudarTipoContato(@Model.Id)" required>
             <option selected value="0">E-mail</option>
             <option value="1">Telefone</option>
         </select>

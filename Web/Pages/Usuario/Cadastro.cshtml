@@ -3,24 +3,40 @@
 @{
 }
 
-<form id="form_cadastro" class="w-50 mt-5 p-5 border rounded-3" style="height: max-content">
-    <div class="mb-3">
-        <label for="input_usuario" class="form-label">Nome</label>
-        <input type="text" name="nome" class="form-control" id="input_nome" required>
-    </div>
-    <div class="mb-3">
-        <label for="input_usuario" class="form-label">E-mail</label>
-        <input type="email" name="email" class="form-control" id="input_email" required>
-    </div>
-    <div class="mb-3">
-        <label for="input_usuario" class="form-label">Telefone</label>
-        <input type="text" name="telefone" class="form-control" id="input_telefone" required>
-    </div>
-    <div class="mb-3">
-        <label for="input_senha" class="form-label">Senha</label>
-        <input type="password" name="senha" class="form-control" id="input_senha" required>
-    </div>
-    <button id="btn_entrarCadastro" class="btn btn-primary">Cadastrar</button>
+<link rel="stylesheet" href="~/css/Usuario/Cadastro.css" />
+
+<form id="form_cadastro" class="w-75 mt-5 p-5 border rounded-3" style="height: max-content">
+	<div class="d-flex">
+		<div class="w-50 d-flex flex-column">
+			<h4>Cadastrar Usuário</h4>
+			<div>
+				<div class="d-flex justify-content-between">
+					<div class="mb-3 div_inputCadastroUsuario">
+						<label for="input_usuario" class="form-label">Nome</label>
+						<input type="text" name="nome" class="form-control" id="input_nome" placeholder="Nome" required>
+					</div>
+					<div class="mb-3 div_inputCadastroUsuario">
+						<label for="input_usuario" class="form-label">E-mail</label>
+						<input type="email" name="email" class="form-control" id="input_email" placeholder="email@email.com" required>
+					</div>
+				</div>
+				<div class="d-flex justify-content-between">
+					<div class="mb-3 div_inputCadastroUsuario">
+						<label for="input_usuario" class="form-label">Telefone</label>
+						<input type="text" name="telefone" class="form-control" id="input_telefone" placeholder="(99) 99999-9999" required>
+					</div>
+					<div class="mb-3 div_inputCadastroUsuario">
+						<label for="input_senha" class="form-label">Senha</label>
+						<input type="password" name="senha" class="form-control" id="input_senha" placeholder="********" required>
+					</div>
+				</div>
+			</div>
+			<button id="btn_entrarCadastro" class="btn btn-primary">Cadastrar Usuário</button>
+		</div>
+		<div class="d-flex w-50 justify-content-center align-items-center">
+			<input type="file" id="input_subirImagem" class="h-100 custom-file-input" name="imagem" accept="image/*">
+		</div>
+	</div>
 </form>
 
 <script src="~/js/Usuario/Cadastro.js"></script>
