@@ -3,3 +3,4 @@
 /.vs
 /Web/bin/Debug/net6.0
 /Web/obj
+/Web/bin/Release/net6.0

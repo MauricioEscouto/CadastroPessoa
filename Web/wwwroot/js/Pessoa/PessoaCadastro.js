@@ -132,7 +132,7 @@ var ActionPessoaCadastro = {
             };
 
             var json = JSON.stringify(pessoaFisica);
-            const response = await fetch(`/Pessoa/CadastrarPessoaFisica?pessoaFisica=${json}`, {
+            const response = await fetch(`/Pessoa/CadastrarPessoaFisica`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

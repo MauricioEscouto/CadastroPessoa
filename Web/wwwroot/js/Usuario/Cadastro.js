@@ -9,6 +9,12 @@
                 }
             }
         });
+
+        let input_telefoneUsuario = document.getElementById("input_telefone");
+        if (input_telefoneUsuario) {
+            let mascaraTelefone = new Inputmask("(99) 99999-9999");
+            mascaraTelefone.mask(input_telefoneUsuario);
+        }
     }
 });
 
